@@ -16,6 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from reservation_app_gv.views import RoomCreate
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('addroom/', RoomCreate.as_view(), name="addroom"),
 ]
