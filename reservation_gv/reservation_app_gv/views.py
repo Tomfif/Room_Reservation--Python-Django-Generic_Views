@@ -3,7 +3,7 @@ import datetime
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import View
-from django.views.generic import CreateView, DeleteView
+from django.views.generic import CreateView, DeleteView, UpdateView
 from reservation_app_gv.models import ConferenceRoom
 
 
@@ -24,3 +24,9 @@ class DeleteRoom(DeleteView):
     template_name = 'delete_room.html'
     success_url = '/'
     model = ConferenceRoom
+
+class ConferenceRoomUpdate(UpdateView):
+    model = ConferenceRoom
+    fields = ['name', 'capacity', 'projector_availability']
+    template_name_suffix = '_update_form'
+    success_url = '/'
