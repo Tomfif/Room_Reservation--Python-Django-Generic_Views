@@ -18,6 +18,7 @@ from django.urls import path
 
 from reservation_app_gv.views import RoomCreate, RoomListView, DeleteRoom, ConferenceRoomUpdate
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('addroom/', RoomCreate.as_view(), name="addroom"),
