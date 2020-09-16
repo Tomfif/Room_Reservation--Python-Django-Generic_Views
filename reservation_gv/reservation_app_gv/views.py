@@ -2,7 +2,7 @@ import datetime
 from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
 from django.views import View
-from django.views.generic import CreateView, DeleteView, UpdateView
+from django.views.generic import CreateView, DeleteView, UpdateView, DetailView
 from reservation_app_gv.models import ConferenceRoom, RoomReservation
 
 
@@ -35,9 +35,6 @@ class RoomReservationCreate(CreateView):
     fields = ['room_id', 'date', 'comment']
     success_url = "/"
 
-    # def form_valid(self, form):
-    #     ConferenceRoom = form.save(commit=False)
-    #     ConferenceRoom.user_id = self.request.user.id
-    #     ConferenceRoom.save()
-    #     self.success_url = reverse('roomreserve:reservation-room', args=[str(ConferenceRoom.id)])
-    #     return super(RoomReservationCreate, self).form_valid(form)
+class RoomDetailsView(DetailView):
+    model = ConferenceRoom
+    template_name = 'conferenceroom_details_view.html'
