@@ -38,3 +38,7 @@ class RoomReservationCreate(CreateView):
 class RoomDetailsView(DetailView):
     model = ConferenceRoom
     template_name = 'conferenceroom_details_view.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
