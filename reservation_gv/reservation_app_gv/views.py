@@ -27,7 +27,7 @@ class DeleteRoom(DeleteView):
 class ConferenceRoomUpdate(UpdateView):
     model = ConferenceRoom
     fields = ['name', 'capacity', 'projector_availability']
-    template_name_suffix = '_update_form'
+    # template_name_suffix = '_update_form'
     success_url = "/"
 
 class RoomReservationCreate(CreateView):
