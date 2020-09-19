@@ -22,18 +22,18 @@
 
         <tbody>
 
-        {% for room in rooms %}
+        {% for conferenceroom in object_list %}
 
         <tr class="d-flex">
 
-                <th scope="row" class="col-1">{{ room.id }}</th>
+                <th scope="row" class="col-1">{{ conferenceroom.id }}</th>
 
                 <td class="col-2">
 
-                    <a href="/roomdetails/{{ room.id }}/">{{ room.name }}</a>
+                    <a href="/roomdetails/{{ conferenceroom.id }}/">{{ conferenceroom.name }}</a>
                 </td>
 
-                <td class="col-1">{{ room.capacity }}</td>
+                <td class="col-1">{{ conferenceroom.capacity }}</td>
                 {% if room.reserved %}
 
                     <td class="col-2" style="color:red;">Booked</td>
@@ -44,7 +44,7 @@
 
                 {% endif %}
 
-                {% if room.projector_availability %}
+                {% if conferenceroom.projector_availability %}
 
                     <td class="col-2" style="color:darkgreen;">&#9745;</td>
 
@@ -56,13 +56,13 @@
 
                 <td class="col-1">
 
-                    <a href="/modifyroom/{{ room.id }}/">edit</a>
+                    <a href="/modifyroom/{{ conferenceroom.id }}/">edit</a>
 
                 </td>
 
                 <td class="col-1">
 
-                    <a href="/deleteroom/{{ room.id }}/">delete</a>
+                    <a href="/deleteroom/{{ conferenceroom.id }}/">delete</a>
 
                 </td>
 
