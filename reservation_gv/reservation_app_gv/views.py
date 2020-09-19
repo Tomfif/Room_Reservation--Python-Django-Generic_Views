@@ -27,8 +27,9 @@ class DeleteRoom(DeleteView):
 class ConferenceRoomUpdate(UpdateView):
     model = ConferenceRoom
     fields = ['name', 'capacity', 'projector_availability']
-    # template_name_suffix = '_update_form'
     success_url = "/"
+
+
 
 class RoomReservationCreate(CreateView):
     model = RoomReservation
@@ -38,7 +39,8 @@ class RoomReservationCreate(CreateView):
 class RoomDetailsView(DetailView):
     model = ConferenceRoom
     template_name = 'conferenceroom_details_view.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
+    def get_context_data(self,** kwargs):
+        context = super(RoomDetailsView, self).get_context_data(**kwargs)
+        context['reservations'] =  self.get_object().roomreservation_set.filter(date__gte=str(datetime.date.today())).order_by('date')
         return context
+
